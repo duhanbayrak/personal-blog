@@ -1,0 +1,48 @@
+<%- include('../partials/header') %>
+    <!-- Page Header-->
+    <header class="masthead"
+        style="background-image: url('https://cdn.pixabay.com/photo/2019/06/12/16/59/bike-4269753_960_720.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="page-heading">
+                        <h1>Admin Dashboard</h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="container">
+        <% adminActions.forEach(function(action){ %>
+
+
+            <div class="row justify-content-center">
+
+
+                <div class="col-lg-4 mx-auto">
+                    <button id="<%= action.actionId %>" onclick="cathID(this.id)" type="button"
+                        class="btn btn-outline-success btn-lg btn-block">
+                        <%= action.displayName %>
+                    </button>
+                    <hr>
+
+                </div>
+                
+                <div class="col-lg-8 mx-auto"></div>
+                <% }); %>
+
+            </div>
+
+    </div>
+    <script>
+        function cathID(clicked_id) {
+            if (clicked_id == 4) {
+                window.location.href = 'addNewBlog'; return false;
+            }
+        }
+    </script>
+    <%- include('../partials/footer') %>

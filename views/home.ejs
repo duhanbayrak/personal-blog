@@ -1,0 +1,59 @@
+<%- include('./partials/header') %>
+    <!-- Page Header-->
+    <header class="masthead"
+        style="background-image: url('https://cdn.pixabay.com/photo/2016/03/26/13/09/workspace-1280538_960_720.jpg')">
+        <div class="container position-relative px-4 px-lg-5 ">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Feyza's Blog</h1>
+                        <span class="subheading">-Kişisel Blog-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <% var firstBlog=blogs.slice(0,5) %>
+                <% firstBlog.forEach(e=> { %>
+                    <div class="col-lg-3 mx-auto">
+                        <img class="img-thumbnail" src="<%= e.comImage %> ">
+                    </div>
+
+                    <div class="col-lg-9 col-xl-7">
+                        <!-- Post preview-->
+                        <div class="post-preview">
+
+                            <a href="/blog/<%= e._id %>">
+                                <h2 class="post-title">
+                                    <%= e.blogTitle %>
+                                </h2>
+                                <h3 class="post-subtitle">
+                                    <%= e.comSentence %>
+                                </h3>
+                            </a>
+                            <p class="post-meta">
+                                Posted by
+                                <a href="#!">Feyza</a>
+                                <%= e.date %>
+                            </p>
+
+                        </div>
+
+                        <!-- Divider-->
+                        <hr class="my-4" />
+
+                        <!-- Pager-->
+
+                    </div>
+                    <% }) %>
+                        <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase"
+                                href="/allBlogs">Tüm Yazılar→</a></div>
+
+        </div>
+
+    </div>
+    <%- include('./partials/footer') %>
