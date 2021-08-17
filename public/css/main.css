@@ -11139,6 +11139,7 @@ header.masthead .page-heading h1, header.masthead .page-heading .h1,
 header.masthead .site-heading h1,
 header.masthead .site-heading .h1 {
   font-size: 3rem;
+  font-family: 'Montserrat', sans-serif;
 }
 header.masthead .page-heading .subheading,
 header.masthead .site-heading .subheading {
