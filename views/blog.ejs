@@ -47,14 +47,17 @@
             </div>
         </div>
     </nav>
-    <header class="masthead"
-        style="background-image: url('<%=blog.comImage %>')">
+    <header class="masthead" style="background-image: url('<%=blog.comImage %>')">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="post-heading">
-                        <h1><%= blog.blogTitle %></h1>
-                        <h2 class="subheading"><%= blog.comSentence %></h2>
+                        <h1>
+                            <%= blog.blogTitle %>
+                        </h1>
+                        <h2 class="subheading">
+                            <%= blog.comSentence %>
+                        </h2>
                         <span class="meta">
                             Posted by
                             <a href="/allBlogs">Feyza</a>
@@ -69,10 +72,6 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-
-                    
-
-
                 </div>
                 <div class="col-lg-9 col-xl-7">
                     <!-- Post preview-->
@@ -88,12 +87,9 @@
                         </h3>
                         <span class="meta">
                             Posted by
-                        <%- blog.blog %>
-                        
+                            <%- blog.blog %>
                     </div>
-                    
                 </div>
-
             </div>
         </div>
     </article>
