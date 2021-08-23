@@ -1,4 +1,5 @@
 const express = require('express');
+const nodemon = require("nodemon");
 const app = express()
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");

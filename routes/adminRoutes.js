@@ -1,10 +1,5 @@
-const { authenticate } = require('passport');
-
-const express       = require('express'),
-    router          = express.Router(),
-    bcrypt          = require("bcrypt"),
-    passport        = require("passport"),
-    LocalStrategy   = require("passport-local").Strategy
+const   express       = require('express'),
+        router          = express.Router()
 
 let adminActions = [
     {
