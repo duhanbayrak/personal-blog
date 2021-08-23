@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Feyza's Blog</title>
+    <title>Duhan Bayrak</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -31,7 +31,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light animate__animated animate__fadeInDown" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="/">Feyza's Blog</a>
+            <a class="navbar-brand" href="/"><h1><i class="fas fa-code"></i> </h1></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -60,7 +60,7 @@
                         </h2>
                         <span class="meta">
                             Posted by
-                            <a href="/allBlogs">Feyza</a>
+                            <a href="/allBlogs">Duhan</a>
                             <%= blog.date %>
                         </span>
                     </div>
@@ -86,13 +86,34 @@
                             <%= blog.comSentence %>
                         </h3>
                         <span class="meta">
-                            Posted by
                             <%- blog.blog %>
                     </div>
                 </div>
             </div>
         </div>
     </article>
+    <hr>
+    <div class="container col-lg-7">
+        
+        <h2>Yorumlar</h2>
+        <form action="/blog" method="post">
+            <div class="form-group">
+                <label for="name">İsim</label>
+                <input class="form-control" id="name" placeholder="İsim" type="text" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-Posta</label>
+                <input class="form-control" id="email" placeholder="E-Posta" type="email" name="email" required>
+            </div>
+
+            <textarea style="width: 100%; height: 300px;"  name="comment" id="comment" placeholder="Yorum Yazın"></textarea> 
+            
+            <br><br>
+            <button type="submit" id="yorumBtn" class="btn btn-outline-success">Yorum Yap</button>
+            <br><br>
+        </form>
+    </div>
+    
 
 
     <%- include('./partials/footer') %>

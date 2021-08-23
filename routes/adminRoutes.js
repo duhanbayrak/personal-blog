@@ -1,7 +1,10 @@
-const express = require('express'),
-    router = express.Router(),
-    ejsLint = require('ejs-lint');
+const { authenticate } = require('passport');
 
+const express       = require('express'),
+    router          = express.Router(),
+    bcrypt          = require("bcrypt"),
+    passport        = require("passport"),
+    LocalStrategy   = require("passport-local").Strategy
 
 let adminActions = [
     {
@@ -30,17 +33,31 @@ let adminActions = [
         displayName: "List All Blogs"
     },
 ];
-var user =[
-    {
-    username : "feyzaduhan",
-    password : "feyzaduhan"
-    }
-];
+
 
 router.get("/admin", (req, res) => {
-    res.render("admin/admin", { adminActions: adminActions });
+    res.render("admin/admin", { adminActions: adminActions }); 
+});
+
+router.get("/login",(req, res) => {
+    res.render("admin/login");
+});
+
+router.post("/login",(req, res) => {
+    res.render("admin/login");
+});
+
+router.get("/register",(req, res) => {
+    res.render("admin/login");
+});
+
+router.post("/register", async (req, res) => {
     
 });
+
+
+
+
 
 // router.post("/admin", (req, res) => {
 //     res.render("admin/signIn",{user:user})

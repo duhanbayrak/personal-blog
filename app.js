@@ -2,13 +2,9 @@ const express = require('express');
 const app = express()
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const nodemon = require("nodemon");
-const fileUpload = require("express-fileupload");
 const PORT = process.env.PORT;
 
-const dbURL = 'mongodb+srv://duhanbayrak:348415Duhan@duhandb.pylk5.mongodb.net/feyzaBlog?retryWrites=true&w=majority';
-
-
+const dbURL = 'mongodb+srv://duhanbayrak:348415Duhan@duhandb.pylk5.mongodb.net/duhanBlog?retryWrites=true&w=majority';
 
 mongoose.connect(dbURL, { useNewUrlParser: true }, { useUnifiedTopology: true },{ssl: true})
     .then((result) => {
@@ -18,27 +14,23 @@ mongoose.connect(dbURL, { useNewUrlParser: true }, { useUnifiedTopology: true },
         console.log(err);
     });
 
-app.use(fileUpload());
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-//Routes
 const indexRoutes = require("./routes/indexRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const blogRoutes = require("./routes/blogRoutes");
+const commentRoutes = require("./routes/commentRoutes");
+const contact = require("./routes/contact");
 
-
-
-
-
-//Routes Using
 app.use(indexRoutes);
 app.use(adminRoutes);
 app.use(blogRoutes);
-
+app.use(commentRoutes);
+app.use(contact);
 
 
 app.listen(PORT, () => console.log(`Example app listening on port port!`));

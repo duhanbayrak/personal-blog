@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose              = require("mongoose");
 
 const SiteSchema = new mongoose.Schema({
     homeImage:      { type: String, require: true },

@@ -1,9 +1,7 @@
 const   express = require("express"),
         router  = express.Router(),
-        Blog    = require("../models/blogModel"),
-        path    = require("path");
-       
-        
+        Blog    = require("../models/blogModel")
+         
 router.use(express.urlencoded({extended:true}))
 
 router.get("/addNewBlog", (req, res) =>{
@@ -20,10 +18,6 @@ router.post("/addNewBlog",(req, res) =>{
      }).catch((err) => {
          console.log(err);
      });
-  
-
 });
-
-
 
 module.exports = router;
