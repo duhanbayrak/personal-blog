@@ -36,10 +36,11 @@
                                     <%= e.comSentence %>
                                 </h3>
                             </a>
+                            <% const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; %> 
                             <p class="post-meta">
                                 Posted by
                                 <a href="#!">Duhan Bayrak</a>
-                                <%= e.date.toLocaleDateString() %>
+                                <%= e.date.toLocaleDateString('tr-TU',options) %>
                             </p>
 
                         </div>
