@@ -1,5 +1,5 @@
 <%- include('./partials/header') %>
-    <header class="masthead animate__animated animate__fadeInLeft"
+    <header class="masthead"
         style="background-image: url('https://cdn.pixabay.com/photo/2021/08/08/15/52/ferns-6531279_960_720.jpg');background-attachment: fixed;">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -14,7 +14,7 @@
     </header>
     <div class="container px-4 px-lg-5">
 
-        <div class="row gx-4 gx-lg-5 justify-content-center animate__animated animate__fadeInRight">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
             <% blogs.forEach(e=> { %>
                 <div class="col-lg-3 mx-auto">
                     <img class="img-thumbnail" src="<%= e.comImage %> ">
