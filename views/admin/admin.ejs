@@ -37,9 +37,22 @@
     </div>
     <script>
         function cathID(clicked_id) {
+            if (clicked_id == 1) {
+                window.location.href = 'changeHomeImage'; return false;
+            }
+            if (clicked_id == 2) {
+                window.location.href = 'changeAboutImage'; return false;
+            }
+            if (clicked_id == 3) {
+                window.location.href = 'addNewBlog'; return false;
+            }
             if (clicked_id == 4) {
                 window.location.href = 'addNewBlog'; return false;
             }
+            if (clicked_id == 5) {
+                window.location.href = 'listAllBlogs'; return false;
+            }
+
         }
     </script>
     <%- include('../partials/footer') %>

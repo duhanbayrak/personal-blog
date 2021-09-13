@@ -1,11 +1,9 @@
 const mongoose              = require("mongoose");
 
 const CommentSchema = new mongoose.Schema({
-    name:          { type: String, require: true },
-    email:         { type: String},
-    comment:       { type: String,},
-    date:          {type: Date, default: Date.now}
-    
+    name:      { type: String, require: true },
+    email:     { type: String, require: true },
+    comment:   { type: String, require: true }
 });
 
 

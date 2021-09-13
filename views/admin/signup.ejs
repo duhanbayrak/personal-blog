@@ -1,0 +1,42 @@
+<%- include('../partials/header') %> 
+<style>
+   body{
+       background: #5C3D2E;
+   }
+</style>
+<header class="masthead animate__animated animate__fadeInRight"
+        style="background-image: url('https://cdn.pixabay.com/photo/2020/03/20/13/13/lost-places-4950624_960_720.jpg')">
+        <div class="container position-relative px-4 px-lg-5 ">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading baslik">
+                        <h1>Sign Up</h1>
+                        <hr>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+<div class="container col-lg-4">
+    <div class="card" style="font-family: 'Montserrat', sans-serif;">
+        <div class="card-header">
+         Sign Up
+        </div>
+        <div class="card-body" style="background: #F7F6F2;">
+            <form action="/signup" method="post">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Kullanıcı Adı</label>
+                  <input type="text" class="form-control" placeholder="Kullanıcı Adı" name="username">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control"  placeholder="Şifre" name="password">
+                </div>
+                <button type="submit" class="btn btn-outline-success">Kayıt Ol</button>
+              </form>
+        </div>
+      </div>
+</div>
+<br><br><br><br>
+    

@@ -1,0 +1,51 @@
+<%- include('../partials/header') %>
+    <header class="masthead animate__animated animate__fadeInLeft"
+        style="background-image: url('https://cdn.pixabay.com/photo/2021/08/08/15/52/ferns-6531279_960_720.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>All Blogs</h1>
+                        <span class="subheading">-Kişisel Blog-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container px-4 px-lg-5">
+
+        <div class="row gx-4 gx-lg-5 justify-content-center animate__animated animate__fadeInRight">
+            <% blogs.forEach(e=> { %>
+                <div class="col-lg-3 mx-auto">
+                    <img class="img-thumbnail" src="<%= e.comImage %> ">
+                </div>
+
+                <div class="col-lg-9 col-xl-7">
+                    <!-- Post preview-->
+                    <div class="post-preview">
+
+                        <a href="/blog/<%= e._id %>">
+                            <h2 class="post-title">
+                                <%= e.blogTitle %>
+                            </h2>
+                            <h3 class="post-subtitle">
+                                <%= e.comSentence %>
+                            </h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="/allBlogs">Duhan</a>
+                            <%= e.date.toLocaleDateString() %>
+                        </p>
+                        
+                    </div>
+                    <hr class="my-4" />
+
+                </div>
+                <% }) %>
+
+
+        </div>
+
+    </div>
+    <%- include('./partials/footer') %>

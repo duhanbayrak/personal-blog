@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+
+<div class="container">
+    <h2 style="text-align: center;">Anasayfa Resmini Değiştir</h2>
+    <form action="/changeHomeImage" method="post" >
+        <div class="form-group">
+            <label for="homeImage">Resim URL</label>
+            <input class="form-control" id="homeImage" placeholder="Resim URL" type="text" name="homeImage"> 
+        </div>        
+        <br><br>
+        <button type="submit" class="btn btn-outline-success">Değiştir</button>
+        <br><br>
+    </form>
+   
+</div>
+
+
+
+
+
+
+<%- include('../partials/footer') %>

@@ -27,9 +27,9 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-    <link rel="stylesheet" href="css/experience.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/experience.css">
+    
     <link rel="shortcut icon" href="images/d.png" />
 </head>
 <style>
@@ -37,7 +37,7 @@
 </style>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light " id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light animate__animated animate__fadeInDown" id="mainNav">
         <div class="container px-4 px-lg-5 animate__animated animate__fadeInDown">
             <a class="navbar-brand" href="/">
                 <h1><i class="fas fa-code"></i> </h1>
@@ -47,7 +47,7 @@
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="collapse navbar-collapse" id="navbarResponsive"  style="font-family: 'Montserrat', sans-serif;">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/about">About</a></li>
@@ -55,12 +55,24 @@
                     </li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/contact">Contact</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/allBlogs">All Blogs</a></li>
+                    <% if(currentUser){ %>
+
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="/admin">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="/logout">Çıkış</a>
+                        </li>
+                        
+
+                    <% }%>
+                       
                 </ul>
             </div>
         </div>
     </nav>
-    <header class="masthead"
-        style="background-image: url('https://cdn.pixabay.com/photo/2019/07/08/10/52/camogli-4324509_960_720.jpg')">
+    <header class="masthead animate__animated animate__fadeInLeft"
+        style="background-image: url('https://images.unsplash.com/photo-1518989504269-a24cacf584d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80');background-attachment: fixed;">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -74,7 +86,7 @@
         </div>
     </header>
 
-    <div class="container">
+    <div class="container animate__animated animate__fadeInRight">
         <div class="container">
             <div class="row">
                 <div class="col-md-12" id="exp">
@@ -86,19 +98,19 @@
                             <div id="content">
                                 <ul class="timeline">
                                     <li class="event" data-date="2011 - 2015">
-                                        <span style="font-size: 3em; color: white;"><i
+                                        <span style="font-size: 3em; color: #4AA96C;"><i
                                                 class="fas fa-graduation-cap"></i></span>
                                         <h1>Mustafa Kaya Anadolu Lisesi</h1>
                                         <p>-2015 Yılında mezun oldum</p>
                                     </li>
                                     <li class="event" data-date="2016 - Now">
-                                        <span style="font-size: 3em; color: white;"><i
+                                        <span style="font-size: 3em; color: #4AA96C;"><i
                                                 class="fas fa-university"></i></span>
                                         <h1>Karadeniz Teknik Üniversitesi</h1>
                                         <p>Bilgisayar Mühendisliği Lisans</p>
                                     </li>
                                     <li class="event" data-date="2021">
-                                        <span style="font-size: 3em; color: white;"><i
+                                        <span style="font-size: 3em; color: #4AA96C;"><i
                                                 class="fas fa-hospital-alt"></i></span>
                                         <h1>Özel Medikar Hastanesi Information Technology Intern</h1>
                                         <p>INTERN</p>

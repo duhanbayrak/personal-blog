@@ -50,8 +50,18 @@
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/about">About</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/resume">Resume</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/signin">Sign in</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/allBlogs">All Blogs</a></li>
+                    <% if(currentUser){ %>
+
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="/admin">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="/logout">Çıkış</a>
+                        </li>
+
+                        <% }%>
+
                 </ul>
             </div>
         </div>
@@ -59,7 +69,7 @@
     <br><br><br>
     <div class="container">
         <h2 style="text-align: center;">Yeni Yazı Ekle</h2>
-        <form action="/addNewBlog" method="post" enctype="multipart/form-data">
+        <form onsubmit="return doPost(this)" method="post">
             <div class="form-group">
                 <label for="blogTitle">Başlık</label>
                 <input class="form-control" id="blogTitle" placeholder="Blog Başlığı" type="text" name="blogTitle" required>
@@ -78,6 +88,7 @@
             
             <br><br>
             <button type="submit" id="myButton" class="btn btn-outline-success">Paylaş</button>
+            <a href="/admin" class="btn btn-secondary">İptal</a>
             <br><br>
         </form>
        
@@ -143,9 +154,23 @@
 
     <script src="js/main.js"></script>
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-    <script src="./node_modules/ckeditor/ckeditor.js"></script>
+  
     <script>
         CKEDITOR.replace('blog');
+
+        function doPost(form) {
+            $ajax({
+            url: "/do-post",
+            method: "POST",
+            data: {blogTitle: form.blogTitle.value, comSentence: form.comSentence.value, comImage: form.comImage.value, blog:form.blog.value},
+            success: function(response) {
+                alert(response);
+            }
+            
+        });
+        return false;
+        }
+        
     </script>
 </body>
 

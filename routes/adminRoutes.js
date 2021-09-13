@@ -1,5 +1,13 @@
 const   express       = require('express'),
-        router          = express.Router()
+        router          = express.Router(),
+        Site    = require("../models/siteModel"),
+        User = require("../models/userModel"),
+        passport = require("passport"),
+        Blog    = require("../models/blogModel");
+        
+
+router.use(express.urlencoded({extended:false}));
+
 
 let adminActions = [
     {
@@ -30,46 +38,60 @@ let adminActions = [
 ];
 
 
-router.get("/admin", (req, res) => {
+
+router.get("/admin",isLoggedIn, (req, res) => {
     res.render("admin/admin", { adminActions: adminActions }); 
 });
-
-router.get("/login",(req, res) => {
-    res.render("admin/login");
+router.get("/changeHomeImage",isLoggedIn, (req, res) => {
+    res.render("admin/changeHomeImage"); 
 });
-
-router.post("/login",(req, res) => {
-    res.render("admin/login");
-});
-
-router.get("/register",(req, res) => {
-    res.render("admin/login");
-});
-
-router.post("/register", async (req, res) => {
+router.get("/listAllBlogs",isLoggedIn, (req, res) => {
     
+    Blog.find().sort({date: -1})
+     .then((result) => {
+         res.render("allBlogs",{blogs:result})
+     }).catch((err) => {
+         console.log(err)
+     });   
 });
 
+router.get("/login", (req,res) => {
+    res.render("admin/login")
+});
+router.post("/login",passport.authenticate("local",
+    {
+        successRedirect:"/",
+        failureRedirect:"/login"
 
+    }),(req,res) => {
 
+    });
+router.get("/signup", isLoggedIn,(req,res) => {
+    res.render("admin/signup")
+});
+router.post("/signup", (req,res) => {
+    console.log(req.body)
+    const newUser = new User({username:req.body.username})
+    User.register(newUser, req.body.password, (err,user) => {
+        if (err) {
+            console.log(err);
+            res.redirect("/signup")
+        }
+            passport.authenticate("local")(req,res, () => {
+                res.redirect("/");
+            })
+    })
+});
+router.get("/logout", (req,res) => {
+    req.logOut();
+    res.redirect("/")
+});
 
-
-// router.post("/admin", (req, res) => {
-//     res.render("admin/signIn",{user:user})
-//     console.log(req.body.username);
-//     if (req.body.username == user.username && req.body.password == user.password) {
-//         res.redirect("admin/admin", { adminActions: adminActions });
-//     }  
-    
-// });
-
-  
-
-
-
-
-
-
-
+function isLoggedIn(req,res,next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect("/login")
+}
 
 module.exports = router;

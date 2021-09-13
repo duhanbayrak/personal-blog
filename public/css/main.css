@@ -239,7 +239,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #0085A1;
+  color: #4AA96C;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -3890,7 +3890,7 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: #0085A1;
+  color: #4AA96C;
 }
 .nav-link.disabled {
   color: #6c757d;
@@ -11044,7 +11044,7 @@ blockquote {
   text-transform: uppercase;
 }
 #mainNav .navbar-nav > li.nav-item > a.nav-link {
-  font-size: 0.75rem;
+  font-size: 0.90rem;
   font-weight: 800;
   letter-spacing: 0.0625em;
   text-transform: uppercase;
@@ -11064,7 +11064,7 @@ blockquote {
     color: #fff;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: #4AA96C;
   }
 }
 @media (min-width: 992px) {
@@ -11211,7 +11211,7 @@ header.masthead .site-heading .h1 {
 }
 .post-preview > a:focus, .post-preview > a:hover {
   text-decoration: none;
-  color: #0085A1;
+  color: #4AA96C;
 }
 .post-preview > a > .post-title {
   font-size: 1.875rem;

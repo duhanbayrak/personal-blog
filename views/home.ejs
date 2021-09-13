@@ -2,15 +2,15 @@
 
 
     <!-- Page Header-->
-    <header class="masthead"
-        style="background-image: url('https://cdn.pixabay.com/photo/2016/11/30/20/58/programming-1873854_960_720.png')">
+    <header class="masthead animate__animated animate__fadeInRight"
+        style="background-image: url('https://cdn.pixabay.com/photo/2016/01/19/15/09/foggy-1149180_960_720.jpg'); background-attachment: fixed;">
         <div class="container position-relative px-4 px-lg-5 ">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="site-heading baslik">
-                        <h1>Duhan Bayrak</h1>
+                        <h1 style="color: #4AA96C;">Duhan Bayrak</h1>
                         <hr>
-                        <span class="subheading">-Kişisel Blog-</span>
+                        <span style="color: #4AA96C;"class="subheading">-Frontend Developer-</span>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
     <!-- Main Content-->
     <div class="container px-4 px-lg-5">
 
-        <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="row gx-4 gx-lg-5 justify-content-center animate__animated animate__fadeInLeft">
             <% var firstBlog=blogs.slice(0,5) %>
                 <% firstBlog.forEach(e=> { %>
                     <div class="col-lg-3 mx-auto">
@@ -29,17 +29,17 @@
                         <div class="post-preview">
 
                             <a href="/blog/<%= e._id %>">
-                                <h2 class="post-title">
+                                <h3 class="post-title">
                                     <%= e.blogTitle %>
-                                </h2>
+                                </h3>
                                 <h3 class="post-subtitle">
                                     <%= e.comSentence %>
                                 </h3>
                             </a>
                             <p class="post-meta">
                                 Posted by
-                                <a href="#!">Duhan</a>
-                                <%= e.date %>
+                                <a href="#!">Duhan Bayrak</a>
+                                <%= e.date.toLocaleDateString() %>
                             </p>
 
                         </div>

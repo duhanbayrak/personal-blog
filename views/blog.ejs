@@ -12,6 +12,8 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -24,6 +26,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="shortcut icon" href="images/d.png" />
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
@@ -31,23 +34,36 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light animate__animated animate__fadeInDown" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="/"><h1><i class="fas fa-code"></i> </h1></a>
+            <a class="navbar-brand" href="/">
+                <h1><i class="fas fa-code"></i> </h1>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="collapse navbar-collapse" id="navbarResponsive" style="font-family: 'Montserrat', sans-serif;">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/about">About</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/contact">Contact</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/allBlogs">All Blogs</a></li>
+                    <% if(currentUser){ %>
+
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="/admin">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="/logout">Çıkış</a>
+                        </li>
+
+                        <% }%>
+
                 </ul>
             </div>
         </div>
     </nav>
-    <header class="masthead" style="background-image: url('<%=blog.comImage %>')">
+    <header class="masthead" style="background-image: url('<%=blog.comImage %>');background-attachment: fixed;">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -60,10 +76,11 @@
                         </h2>
                         <span class="meta">
                             Posted by
-                            <a href="/allBlogs">Duhan</a>
-                            <%= blog.date %>
+                            <a href="/allBlogs">Duhan Bayrak</a>
+                            <%= blog.date.toLocaleDateString() %>
                         </span>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -74,7 +91,7 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                 </div>
                 <div class="col-lg-9 col-xl-7">
-                    <!-- Post preview-->
+                 
                     <div class="post-preview">
 
 
@@ -88,32 +105,55 @@
                         <span class="meta">
                             <%- blog.blog %>
                     </div>
+                   
                 </div>
             </div>
         </div>
+        
     </article>
-    <hr>
-    <div class="container col-lg-7">
+  
+    
+    <!-- 
+        <hr>
+        <div class="container col-lg-7">
         
         <h2>Yorumlar</h2>
-        <form action="/blog" method="post">
+        
+        <form method="post" action="/blog/<%= blog._id %> ">
             <div class="form-group">
+                <input type="hidden" value="<%= blog._id%>" name="blog_id">
                 <label for="name">İsim</label>
-                <input class="form-control" id="name" placeholder="İsim" type="text" name="name" required>
+                <input class="form-control" id="name" placeholder="İsim" type="text" name="name"  required>
             </div>
             <div class="form-group">
                 <label for="email">E-Posta</label>
                 <input class="form-control" id="email" placeholder="E-Posta" type="email" name="email" required>
             </div>
 
-            <textarea style="width: 100%; height: 300px;"  name="comment" id="comment" placeholder="Yorum Yazın"></textarea> 
+            <textarea class="form-control" style="width: 100%; height: 300px;"  name="comment" id="comment" placeholder="Yorum Yazın"></textarea> 
+           
             
-            <br><br>
-            <button type="submit" id="yorumBtn" class="btn btn-outline-success">Yorum Yap</button>
+            <br>
+            <a class="btn btn-outline-success del" data-doc="<%= blog._id %>" style="color: #4AA96C; border-radius: 6px;">Yorum Yap</a>
             <br><br>
         </form>
-    </div>
+    </div> -->
     
+    <script>
+        const del = document.querySelector("a.del");
 
+        del.addEventListener("click",(e)=>{
+            const endpoint = `/blog/comment/${del.dataset.doc}`;
+
+            fetch(endpoint, {
+                method: "POST"
+            })
+            .then((response) => response.json())
+            .then((data) => window.location.href = data.link)
+            .catch((err) => {
+                console.log(err);
+            })
+        })
+    </script>
 
     <%- include('./partials/footer') %>

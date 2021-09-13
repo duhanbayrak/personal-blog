@@ -6,7 +6,8 @@ const BlogSchema = new mongoose.Schema({
     comImage:           { type: String,},
     blog:               { type:String, require: true},
     date:               {type: Date, default: Date.now}
-    
+   
+   
 });
 
 module.exports = mongoose.model("Blog",BlogSchema);
