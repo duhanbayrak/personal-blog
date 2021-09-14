@@ -19,8 +19,8 @@
     <!-- Main Content-->
     <div class="container px-4 px-lg-5">
 
-        <div class="row gx-4 gx-lg-5 justify-content-center animate__animated animate__fadeInLeft">
-           
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <% const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; %> 
             <% var firstBlog=blogs.slice(0,5) %>
                 <% firstBlog.forEach(e=> { %>
                     <div class="col-lg-3 mx-auto">
@@ -41,7 +41,7 @@
                             <p class="post-meta">
                                 Posted by
                                 <a href="#!">Duhan Bayrak</a>
-                                <%= e.date.toLocaleDateString() %>
+                                <%= e.date.toLocaleDateString('tr-TU',options) %>
                             </p>
 
                         </div>
