@@ -25,11 +25,51 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="shortcut icon" href="images/d.png" />
     <link rel="stylesheet" href="/css/main.css">
 </head>
+<style>
+    .share-icons{
+        font-size: 2rem;
+        margin-right: 20px;
+        cursor: pointer;
+        
+    }
+    .share-icons:hover{
+       
+        
+        box-shadow: 4px 4px rgb(189, 186, 186);
+        border-radius: 8px;
+    }
+    .share-btn{
+        width: 370px;
+        display: flex;
+        align-items: center;  
+        float: right;
+        margin-bottom: 5px;
+        border-top: 1px solid rgb(163, 160, 160);
+        padding-top: 5px;
+    }
+    .fa-whatsapp-square{
+        color: green;
+        
+    }
+    .fa-facebook-square{
+        color: #4267B2;
+        
+    }
+    .fa-twitter-square{
+        color: #1DA1F2;
+    }
+    .fa-telegram{
+        color: #0088cc;
+    }
+    .share-btn .fa-linkedin{
+        color: #0077b5;
+    }
 
+   
+</style>
 <body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
@@ -112,12 +152,13 @@
         
     </article>
   
-    <div class="share-btn" data-url="https://duhanbayrak.herokuapp.com/blog/<%= blog._id %> " data-title="..." data-desc="<%=blog.comImage%>">
-        <a class="btn-vk" data-id="vk"><i class="fab fa-vk"></i> VK</a>
-        <a class="btn-facebook" data-id="fb"><i class="fab fa-facebook-square"></i> Facebook</a>
-        <a class="btn-twitter" data-id="tw"><i class="fab fa-twitter"></i> Twitter</a>
-        <a class="btn-telegram" data-id="tg"><i class="fab fa-telegram"></i> Telegram</a>
-        <a class="btn-linkedin" data-id="in"><i class="fas fa-linkedin"></i> Linkedin</a>
+    <div class="share-btn" data-url="https://duhanbayrak.herokuapp.com/blog/<%= blog._id %> " data-title="..." data-desc="...">
+        <h6 class="mr-3"style="font-family: 'Montserrat', sans-serif;" >Bunu Paylaş:</h4>
+        <a class="btn-wa" data-id="wa"><i class="fab fa-whatsapp-square share-icons"></i> </a>
+        <a class="btn-facebook" data-id="fb"><i class="fab fa-facebook-square share-icons"></i> </a>
+        <a class="btn-twitter" data-id="tw"><i class="fab fa-twitter-square share-icons"></i> </a>
+        <a class="btn-telegram" data-id="tg"><i class="fab fa-telegram share-icons"></i> </a>
+        <a class="btn-linkedin" data-id="in"><i class="fab fa-linkedin share-icons"></i></a>
     </div>
     <!-- 
         <hr>
